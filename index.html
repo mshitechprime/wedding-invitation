@@ -11,6 +11,11 @@
 <meta property="og:title" content="Ali &amp; Malaika — Wedding Invitation">
 <meta property="og:description" content="Join us to celebrate Ali &amp; Malaika's Walima on 21 December 2026 in Karachi.">
 <meta property="og:url" content="https://mshitechprime.github.io/wedding-invitation/">
+<meta property="og:image" content="https://mshitechprime.github.io/wedding-invitation/ali-malaika-wedding-invitation.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1536">
+<meta property="og:image:alt" content="Ali and Malaika Walima invitation">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ali &amp; Malaika — Walima">
 <meta name="twitter:description" content="21 December 2026 | Karachi">
@@ -2705,20 +2710,6 @@
         <p class="swh c">Swipe for the next venue →</p>
       </div>
     </section>
-    <section class="sD c" data-r="">
-      <div class="in">
-        <p class="kick">What to wear</p>
-        <h2 class="ttl">A palette for each day</h2>
-        <div class="chips">
-          <article class="chip">
-            <h3>Walima</h3>
-            <div class="bars"><i style="background:#e9b7bd"></i><i style="background:#bfe0cf"></i><i
-                style="background:#e8d5a8"></i></div>
-            <p>Soft pastels</p>
-          </article>
-        </div>
-      </div>
-    </section>
     <section class="sR lace-t lace-b" data-r="">
       <div class="in">
         <div class="rp"><i class="lacep lp1"></i><i class="lacep lp2"></i>
@@ -3045,12 +3036,10 @@
       var vg = {}, vo = []; ev.forEach(function (e) {if (!vg[e.venue]) {vg[e.venue] = {maps: e.maps, ev: []}; vo.push(e.venue);} vg[e.venue].ev.push(e);});
       var vc = vo.map(function (v) {var o = vg[v]; return '<article class="vc"><svg class="pinic" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 1C6 1 1.5 5.4 1.5 11c0 7.5 10.5 19.5 10.5 19.5S22.5 18.5 22.5 11C22.5 5.4 18 1 12 1Z" fill="url(#pg)" stroke="#a995a7"/><circle cx="12" cy="11" r="4" fill="#fff"/></svg><h3>' + esc(v) + '</h3><ul>' + o.ev.map(function (e) {return '<li><b>' + esc(e.name) + '</b><span>' + esc(e.wd) + ' ' + esc(e.day) + ' ' + esc(e.mon) + ' · ' + esc(e.time) + '</span><a class="vcal" href="' + esc(I.calURL(e)) + '" target="_blank" rel="noopener">+ Calendar</a></li>';}).join('') + '</ul><a class="vgo" href="' + esc(o.maps) + '" target="_blank" rel="noopener">Get directions</a></article>';}).join('');
       var s3 = '<section class="s3" data-r><div class="in wide"><div class="hd c"><p class="kick">Come find us</p><h2 class="ttl">Venues &amp; directions</h2></div><div class="vcs">' + vc + '</div>' + (vo.length > 1 ? '<p class="swh c">Swipe for the next venue →</p>' : '') + '</div></section>';
-      var dr = I.CONFIG.dress.map(function (d) {return '<article class="chip"><h3>' + esc(d.name) + '</h3><div class="bars">' + d.colors.map(function (k) {return '<i style="background:' + esc(k) + '"></i>';}).join('') + '</div><p>' + esc(d.note) + '</p></article>';}).join('');
-      var sD = '<section class="sD c" data-r><div class="in"><p class="kick">What to wear</p><h2 class="ttl">A palette for each day</h2><div class="chips">' + dr + '</div></div></section>';
       var sR = '<section class="sR lace-t lace-b" data-r><div class="in"><div class="rp"><i class="lacep lp1"></i><i class="lacep lp2"></i><p class="kick c">Kindly reply</p><h2 class="ttl c">Will you join us?</h2>' + I.confirmHTML() + '</div></div></section>';
       var s4 = '<section class="s4" data-r><div class="in"><div class="paper ruled"><span class="pin" aria-hidden="true"></span><i class="lacep lp1"></i><i class="lacep lp2"></i><p class="kick c">Leave a blessing</p><h2 class="ttl c">Send your duas</h2>' + I.blessHTML() + '</div></div></section>';
       var s5 = '<section class="s5 lace-t"><div class="in"><h2>Jazakum Allah</h2><p>' + esc(I.CONFIG.closing) + '</p><p class="cr">' + esc(I.CONFIG.credit) + '</p></div></section>';
-      $('#app').innerHTML = hero + s1 + sC + sF + s2 + s3 + sD + sR + s4 + s5;
+      $('#app').innerHTML = hero + s1 + sC + sF + s2 + s3 + sR + s4 + s5;
       document.documentElement.style.setProperty('--lcc', 'url(' + LACEC + ')');
       I.musicBtn($('#music'));
       var dr = I.drift($('#petals'), {colors: ['#f8f3f7', '#e6d6e2', '#d6c2d3'], kinds: ['petal'], core: '#ffffff', cap: 18}); dr.start();
