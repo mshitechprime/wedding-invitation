@@ -2767,7 +2767,7 @@
     /* ===== shared engine: config, helpers, music, particles, countdown, RSVP ===== */
     var INV = (function () {
       var CONFIG = {
-        couple: {a: 'Ali', b: 'Malaika', urdu: 'علی اور ملائکہ', aParent: 'Son of Mr. and Mrs. Syed Sabir Hussain', bParent: 'Daughter of Mr. and Mrs. Afzal Mahmood Khan'},
+        couple: {a: 'Ali', b: 'Malaika', urdu: 'علی اور ملائکہ', aParent: 'Son of Mr. and Mrs.<br>Syed Sabir Hussain', bParent: 'Daughter of Mr. and Mrs.<br>Afzal Mahmood Khan'},
         hosts: 'The Sabir and Khan families invite you to celebrate the wedding of',
         guestDefault: 'Family & Friends',
         letter: 'By the grace of Allah, we joyfully invite you to share our Walima. Your presence and your duas would mean the world to us.',
@@ -3030,7 +3030,7 @@
       var pr = [['d', 'Days'], ['h', 'Hours'], ['m', 'Mins'], ['s', 'Secs']].map(function (u) {return '<div class="bp"><div class="pe"><b data-k="' + u[0] + '">00</b></div><small>' + u[1] + '</small></div>';}).join('');
       var s1 = '<section class="s1"><div class="in"><div class="paper"><span class="pin" aria-hidden="true"></span><i class="lacep lp1"></i><i class="lacep lp2"></i><p class="kick">A note for ' + esc(I.guest) + '</p><p class="lt3"><span class="dc">' + esc(I.CONFIG.letter.charAt(0)) + '</span>' + esc(I.CONFIG.letter.slice(1)) + '</p><p class="sig">' + esc(c.a) + ' &amp; ' + esc(c.b) + '</p></div></div></section>';
       var sC = '<section class="sC c lace-t lace-b" data-r><div class="in"><p class="kick" id="cdT">Until the Mehndi</p><h2 class="ttl">The days, strung like pearls</h2><div class="str" role="timer" aria-label="Countdown">' + pr + '</div><p class="when">' + esc(ev[0].wd) + ', ' + esc(ev[0].day) + ' ' + esc(ev[0].mon) + ' · ' + esc(ev[0].time) + '</p></div></section>';
-      var sF = '<section class="sF" data-r><div class="in"><p class="kick c">Our families</p><p class="hosts">' + esc(I.CONFIG.hosts) + '</p><div class="duo"><div class="side"><span class="role">The groom</span><h3>' + esc(c.a) + '</h3><p>' + esc(c.aParent) + '</p></div><div class="mid" aria-hidden="true"><i></i><span>&amp;</span><i></i></div><div class="side"><span class="role">The bride</span><h3>' + esc(c.b) + '</h3><p>' + esc(c.bParent) + '</p></div></div></div></section>';
+      var sF = '<section class="sF" data-r><div class="in"><p class="kick c">Our families</p><p class="hosts">' + esc(I.CONFIG.hosts) + '</p><div class="duo"><div class="side"><span class="role">The groom</span><h3>' + esc(c.a) + '</h3><p>' + esc(c.aParent).replace(/&lt;br\s*\/?&gt;/gi, '<br>') + '</p></div><div class="mid" aria-hidden="true"><i></i><span>&amp;</span><i></i></div><div class="side"><span class="role">The bride</span><h3>' + esc(c.b) + '</h3><p>' + esc(c.bParent).replace(/&lt;br\s*\/?&gt;/gi, '<br>') + '</p></div></div></div></section>';
       var evc = ev.map(function (e) {return '<li class="tli"><span class="nd"></span><div class="tlc"><span class="t1">' + esc(e.wd) + ' · ' + esc(e.day) + ' ' + esc(e.mon) + '</span><h3>' + esc(e.name) + '</h3><span class="ur" lang="ur" dir="rtl">' + e.urdu + '</span><p class="tm">' + esc(e.time) + ' · ' + esc(e.venue) + '</p>' + (e.note ? '<p class="nt">' + esc(e.note) + '</p>' : '') + '</div></li>';}).join('');
       var s2 = '<section class="s2" data-r><div class="in"><p class="kick">Dear ' + esc(I.guest) + '</p><h2 class="ttl">One celebrations</h2><ol class="tl">' + evc + '</ol></div></section>';
       var vg = {}, vo = []; ev.forEach(function (e) {if (!vg[e.venue]) {vg[e.venue] = {maps: e.maps, ev: []}; vo.push(e.venue);} vg[e.venue].ev.push(e);});
@@ -3039,7 +3039,7 @@
       var sR = '<section class="sR lace-t lace-b" data-r><div class="in"><div class="rp"><i class="lacep lp1"></i><i class="lacep lp2"></i><p class="kick c">Kindly reply</p><h2 class="ttl c">Will you join us?</h2>' + I.confirmHTML() + '</div></div></section>';
       var s4 = '<section class="s4" data-r><div class="in"><div class="paper ruled"><span class="pin" aria-hidden="true"></span><i class="lacep lp1"></i><i class="lacep lp2"></i><p class="kick c">Leave a blessing</p><h2 class="ttl c">Send your duas</h2>' + I.blessHTML() + '</div></div></section>';
       var s5 = '<section class="s5 lace-t"><div class="in"><h2>Jazakum Allah</h2><p>' + esc(I.CONFIG.closing) + '</p><p class="cr">' + esc(I.CONFIG.credit) + '</p></div></section>';
-      $('#app').innerHTML = hero + s1 + sC + sF + s2 + s3 + sR + s4 + s5;
+      $('#app').innerHTML = hero + s1 + sC + sF + s2 + s3 + s4 + s5;
       document.documentElement.style.setProperty('--lcc', 'url(' + LACEC + ')');
       I.musicBtn($('#music'));
       var dr = I.drift($('#petals'), {colors: ['#f8f3f7', '#e6d6e2', '#d6c2d3'], kinds: ['petal'], core: '#ffffff', cap: 18}); dr.start();
